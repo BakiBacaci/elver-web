@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - HAKKIMIZDA SAYFASI (hakkimizda.html)
+     ------------------------------------------------------------
+     Sitenin ve kurucunun (Baki Bacacı) tanıtıldığı sayfadır.
+     Metinleri buradan rahatça değiştirebilirsin.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== HAKKIMIZDA İÇERİĞİ ====== -->
+    <section class="bolum" style="max-width:800px;">
+        <h2 class="bolum-baslik">Hakkımızda</h2>
+        <p class="bolum-aciklama">Elver nedir, neden kurduk?</p>
+
+        <!-- Elver tanıtım metni -->
+        <p style="font-size:17px;color:#555;margin-bottom:20px;">
+            Elver, insanların önemsedikleri konularda seslerini kolayca
+            duyurabilmeleri için kurulmuş bir imza kampanyası platformudur.
+            Lösemiyle mücadele eden bir çocuğa destek olmak, sokak
+            hayvanlarına sahip çıkmak, çevreyi korumak ya da eğitimde
+            fırsat eşitliği istemek… Hangi konu olursa olsun, sokağa
+            çıkmadan, internet üzerinden binlerce kişiye ulaşabilirsin.
+        </p>
+
+        <p style="font-size:17px;color:#555;margin-bottom:30px;">
+            Amacımız, iyi niyetli insanları bir araya getirmek ve küçük
+            adımların büyük değişimlere dönüşmesine aracı olmaktır. Bir
+            imza küçük görünebilir; ama binlerce imza birleştiğinde
+            gerçek bir güce dönüşür.
+        </p>
+
+        <!-- ====== KURUCU BİLGİSİ KUTUSU ====== -->
+        <div class="bilgi-kutu">
+            <h3>Kurucu</h3>
+            <p style="font-size:18px;font-weight:bold;">Baki Bacacı</p>
+            <p style="color:#555;">
+                Elver projesini, insanların daha kolay sosyal fayda
+                üretebilmesi fikriyle hayata geçirdim. Herkesin sesini
+                duyurabileceği, sade ve erişilebilir bir platform olması
+                için çalışıyorum.
+            </p>
+        </div>
+
+        <!-- ====== DEĞERLERİMİZ ====== -->
+        <h3 style="margin:30px 0 16px 0;">Değerlerimiz</h3>
+        <div class="kart-listesi">
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:38px;">🤝</div>
+                    <h3>Dayanışma</h3>
+                    <p>İnsanları ortak bir amaç etrafında bir araya getiririz.</p>
+                </div>
+            </div>
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:38px;">🔍</div>
+                    <h3>Şeffaflık</h3>
+                    <p>Her kampanya açık ve herkesin görebileceği şekildedir.</p>
+                </div>
+            </div>
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:38px;">💡</div>
+                    <h3>Sadelik</h3>
+                    <p>Karmaşa olmadan, herkesin kolayca kullanabileceği bir platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

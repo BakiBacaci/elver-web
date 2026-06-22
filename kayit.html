@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - KAYIT (ÜYE OL) SAYFASI (kayit.html)
+     ------------------------------------------------------------
+     Yeni kullanıcıların hesap açtığı sayfadır. Form gönderilince
+     js/giris.js içindeki kayitOl() çalışır: Firebase'de hesap
+     oluşturur ve kullanıcı bilgisini veritabanına yazar.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== KAYIT KUTUSU ====== -->
+    <div class="giris-kutu">
+        <h2 style="text-align:center;margin-bottom:22px;">Kayıt Ol</h2>
+
+        <!-- Hata mesajı kutusu (başta gizli) -->
+        <div class="hata-mesaji" id="kayit-hata"></div>
+
+        <form id="kayit-form">
+            <div class="form-grup">
+                <label for="kayit-ad">Ad Soyad</label>
+                <input type="text" id="kayit-ad" placeholder="Adınız ve soyadınız" required>
+            </div>
+            <div class="form-grup">
+                <label for="kayit-eposta">E-posta</label>
+                <input type="email" id="kayit-eposta" placeholder="ornek@mail.com" required>
+            </div>
+            <div class="form-grup">
+                <label for="kayit-sifre">Şifre</label>
+                <!-- Firebase şifrenin en az 6 karakter olmasını ister -->
+                <input type="password" id="kayit-sifre" placeholder="En az 6 karakter" required>
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Hesap Oluştur</button>
+        </form>
+
+        <!-- Giriş sayfasına yönlendiren link -->
+        <p class="giris-alt-link">
+            Zaten hesabın var mı? <a href="giris.html">Giriş Yap</a>
+        </p>
+    </div>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/giris.js"></script>
+</body>
+</html>

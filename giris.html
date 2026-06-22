@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - GİRİŞ SAYFASI (giris.html)
+     ------------------------------------------------------------
+     İki sekme vardır:
+       - Kullanıcı Girişi : normal üyeler için
+       - Admin Girişi     : yönetici için (admin paneline gider)
+     Sekme değiştirme ve giriş işlemleri js/giris.js içindedir.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== GİRİŞ KUTUSU ====== -->
+    <div class="giris-kutu">
+
+        <!-- İki sekme: Kullanıcı / Admin -->
+        <div class="sekme-satir">
+            <!-- Başlangıçta "Kullanıcı" sekmesi aktif (aktif sınıfı) -->
+            <button id="sekme-kullanici" class="sekme aktif" onclick="sekmeSec('kullanici')">Kullanıcı Girişi</button>
+            <button id="sekme-admin" class="sekme" onclick="sekmeSec('admin')">Admin Girişi</button>
+        </div>
+
+        <!-- ====== KULLANICI GİRİŞ FORMU ====== -->
+        <div id="kullanici-form-kutu">
+            <!-- Hata mesajı kutusu (başta gizli) -->
+            <div class="hata-mesaji" id="kullanici-hata"></div>
+
+            <form id="kullanici-giris-form">
+                <div class="form-grup">
+                    <label for="k-eposta">E-posta</label>
+                    <input type="email" id="k-eposta" placeholder="ornek@mail.com" required>
+                </div>
+                <div class="form-grup">
+                    <label for="k-sifre">Şifre</label>
+                    <input type="password" id="k-sifre" placeholder="Şifreniz" required>
+                </div>
+                <button type="submit" class="btn" style="width:100%;">Giriş Yap</button>
+            </form>
+
+            <!-- Kayıt sayfasına yönlendiren link -->
+            <p class="giris-alt-link">
+                Hesabın yok mu? <a href="kayit.html">Kayıt Ol</a>
+            </p>
+        </div>
+
+        <!-- ====== ADMIN GİRİŞ FORMU ====== (başta gizli) -->
+        <div id="admin-form-kutu" style="display:none;">
+            <div class="hata-mesaji" id="admin-hata"></div>
+
+            <form id="admin-giris-form">
+                <div class="form-grup">
+                    <label for="a-eposta">Yönetici E-postası</label>
+                    <input type="email" id="a-eposta" placeholder="admin@elver.com" required>
+                </div>
+                <div class="form-grup">
+                    <label for="a-sifre">Şifre</label>
+                    <input type="password" id="a-sifre" placeholder="Yönetici şifresi" required>
+                </div>
+                <button type="submit" class="btn" style="width:100%;">Admin Olarak Gir</button>
+            </form>
+
+            <p class="giris-alt-link">
+                Sadece yöneticiler bu alandan giriş yapabilir.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <!-- Üst menüdeki giriş/çıkış durumunu yönetmek için script.js -->
+    <script src="js/script.js"></script>
+    <!-- Giriş/kayıt işlemleri için giris.js -->
+    <script src="js/giris.js"></script>
+</body>
+</html>

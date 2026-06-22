@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - ANA SAYFA (index.html)
+     ------------------------------------------------------------
+     Sitenin giriş sayfasıdır. Üstte menü, ortada karşılama
+     (hero) bölümü, altında öne çıkan kampanyalar bulunur.
+     Tüm sayfalarda menü ve footer aynıdır; birinde değişiklik
+     yaparsan diğerlerinde de elle güncellemen gerekir.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Mobil cihazlarda doğru görünmesi için gerekli satır -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elver - Sesini Duyur, Değişimi Başlat</title>
+    <!-- Ortak stil dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ (HEADER) ======
+         Sol üstte "elver" logosu, sağda sayfa linkleri.
+         Logoyu değiştirmek için aşağıdaki "elver" yazısını değiştir. -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <!-- Öne çıkan menü butonu (turuncu) -->
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== HERO (KARŞILAMA) BÖLÜMÜ ======
+         Sitenin en üstündeki büyük başlık. Başlık ve açıklamayı
+         buradan değiştirebilirsin. -->
+    <section class="hero">
+        <h1>Sesini <span>duyur</span>, değişimi başlat</h1>
+        <p>
+            Elver; sağlıktan hayvan haklarına, çevreden eğitime kadar
+            önemsediğin konularda imza kampanyaları başlatabileceğin
+            ve destek verebileceğin bir platformdur. Sokağa çıkmadan,
+            internetten sesini duyur.
+        </p>
+        <!-- İki ana yönlendirme butonu -->
+        <a href="kampanya-olustur.html" class="btn">Kampanya Başlat</a>
+        <a href="kampanyalar.html" class="btn btn-cizgili">Kampanyalara Göz At</a>
+    </section>
+
+    <!-- ====== ÖNE ÇIKAN KAMPANYALAR ======
+         Bu kutunun içini JavaScript otomatik dolduruyor.
+         id="one-cikan" olan div'i script.js bulur ve ilk 3
+         kampanyayı kart olarak ekler. -->
+    <section class="bolum">
+        <h2 class="bolum-baslik">Öne Çıkan Kampanyalar</h2>
+        <p class="bolum-aciklama">Şu anda en çok destek bekleyen kampanyalar</p>
+
+        <div class="kart-listesi" id="one-cikan">
+            <!-- Kartlar buraya JS ile gelecek -->
+        </div>
+    </section>
+
+    <!-- ====== NASIL ÇALIŞIR BÖLÜMÜ ======
+         3 adımda sitenin nasıl kullanıldığını anlatır. -->
+    <section class="bolum" style="background-color:#fff1ec;border-radius:12px;">
+        <h2 class="bolum-baslik">Nasıl Çalışır?</h2>
+        <p class="bolum-aciklama">Üç basit adımda değişimin parçası ol</p>
+
+        <div class="kart-listesi">
+            <!-- Adım 1 -->
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:40px;">1️⃣</div>
+                    <h3>Kampanya Oluştur</h3>
+                    <p>Önemsediğin konuyu anlat, hedef imza sayısını belirle ve kampanyanı yayınla.</p>
+                </div>
+            </div>
+            <!-- Adım 2 -->
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:40px;">2️⃣</div>
+                    <h3>İmza Topla</h3>
+                    <p>Kampanyanı paylaş, arkadaşlarına ulaştır ve destekçi sayısını artır.</p>
+                </div>
+            </div>
+            <!-- Adım 3 -->
+            <div class="kart">
+                <div class="kart-icerik">
+                    <div class="kart-resim" style="background:transparent;font-size:40px;">3️⃣</div>
+                    <h3>Sesini Duyur</h3>
+                    <p>Topladığın imzalarla yetkililere ulaş ve gerçek bir değişime ön ayak ol.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ======
+         Her sayfanın altında aynısı bulunur. -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ======
+         Veritabanı ve giriş sistemi için Google'ın hazır kodları.
+         İnternetten yüklenir, bu yüzden site açıkken internet gerekir. -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <!-- Önce ayar dosyamız, sonra ortak kod dosyamız yüklenmeli -->
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

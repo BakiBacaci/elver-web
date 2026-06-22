@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - KAMPANYA DETAY SAYFASI (kampanya-detay.html)
+     ------------------------------------------------------------
+     Bir kampanyaya tıklanınca açılan sayfadır. Adres çubuğundaki
+     ?id=NUMARA değerine göre ilgili kampanyayı gösterir.
+     Örnek: kampanya-detay.html?id=2
+     İçeriği ve imza işlemini JavaScript (script.js) doldurur.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanya Detayı - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== KAMPANYA DETAYI ======
+         Bu kutunun içini JavaScript dolduruyor (başlık, açıklama,
+         imza çubuğu vb.). -->
+    <section class="bolum" style="max-width:800px;">
+
+        <!-- Kampanyalara geri dönüş linki -->
+        <a href="kampanyalar.html" style="color:var(--ana-renk);">&larr; Tüm kampanyalara dön</a>
+
+        <div id="kampanya-detay" style="margin-top:20px;">
+            <!-- İçerik buraya JS ile gelecek -->
+        </div>
+
+        <!-- ====== İMZA FORMU ======
+             Form gönderilince imzaAt() çalışır ve imza sayısı artar. -->
+        <div class="form-alani" style="margin-top:40px;background:#fff1ec;padding:30px;border-radius:10px;">
+            <h3 style="margin-bottom:16px;">Bu Kampanyayı İmzala</h3>
+
+            <!-- İmza atılınca görünecek başarı mesajı (başta gizli) -->
+            <div class="basari-mesaji" id="imza-basari">
+                ✓ İmzanız alındı, teşekkür ederiz! Sesin için sağ ol.
+            </div>
+
+            <form id="imza-form">
+                <!-- Hangi kampanyaya imza atıldığını tutan gizli alan.
+                     Değerini JS otomatik dolduruyor. -->
+                <input type="hidden" id="imza-kampanya-id" value="">
+
+                <div class="form-grup">
+                    <label for="imza-ad">Ad Soyad</label>
+                    <input type="text" id="imza-ad" placeholder="Adınız ve soyadınız" required>
+                </div>
+                <div class="form-grup">
+                    <label for="imza-mail">E-posta</label>
+                    <input type="email" id="imza-mail" placeholder="ornek@mail.com" required>
+                </div>
+                <button type="submit" class="btn">İmzamı Ekle</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

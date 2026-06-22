@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - ADMIN PANELİ (admin.html)
+     ------------------------------------------------------------
+     Yöneticiye özel sayfadır. Buraya sadece admin e-postasıyla
+     giriş yapan kişi girebilir (kontrolü js/admin.js yapar).
+     İçerik (istatistikler, tablolar) js/admin.js ile doldurulur.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== ADMIN İÇERİĞİ ====== -->
+    <section class="bolum">
+        <h2 class="bolum-baslik">Admin Paneli</h2>
+        <p class="bolum-aciklama">Kampanyaları ve üyeleri buradan yönet</p>
+
+        <!-- ====== İSTATİSTİK KUTULARI ======
+             İçindeki sayıları js/admin.js dolduruyor. -->
+        <div class="ist-satir">
+            <div class="ist-kutu">
+                <div class="sayi" id="ist-kampanya">0</div>
+                <div class="etiket-yazi">Toplam Kampanya</div>
+            </div>
+            <div class="ist-kutu">
+                <div class="sayi" id="ist-imza">0</div>
+                <div class="etiket-yazi">Toplam İmza</div>
+            </div>
+            <div class="ist-kutu">
+                <div class="sayi" id="ist-uye">0</div>
+                <div class="etiket-yazi">Kayıtlı Üye</div>
+            </div>
+        </div>
+
+        <!-- ====== KAMPANYALAR TABLOSU ====== -->
+        <h3 style="margin-bottom:14px;">Kampanyalar</h3>
+        <table class="admin-tablo">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Kategori</th>
+                    <th>İmza / Hedef</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <!-- Satırları js/admin.js dolduruyor -->
+            <tbody id="kampanya-tablo-govde"></tbody>
+        </table>
+
+        <!-- Örnek kampanyaları veritabanına yükleyen buton -->
+        <button id="ornek-veri-buton" class="btn-cizgili" style="margin-bottom:50px;cursor:pointer;">
+            + Örnek Kampanyaları Yükle
+        </button>
+
+        <!-- ====== ÜYELER TABLOSU ====== -->
+        <h3 style="margin-bottom:14px;">Kayıtlı Üyeler</h3>
+        <table class="admin-tablo">
+            <thead>
+                <tr>
+                    <th>Ad Soyad</th>
+                    <th>E-posta</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <!-- Satırları js/admin.js dolduruyor -->
+            <tbody id="uye-tablo-govde"></tbody>
+        </table>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <!-- Menüdeki giriş/çıkış durumu için script.js -->
+    <script src="js/script.js"></script>
+    <!-- Admin paneli işlemleri için admin.js -->
+    <script src="js/admin.js"></script>
+</body>
+</html>

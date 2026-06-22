@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - KAMPANYA OLUŞTURMA SAYFASI (kampanya-olustur.html)
+     ------------------------------------------------------------
+     Kullanıcının yeni kampanya başlattığı formdur. Form
+     gönderilince kampanyaOlustur() çalışır, kampanyayı listeye
+     ekler ve kampanyalar sayfasına yönlendirir.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanya Oluştur - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== KAMPANYA OLUŞTURMA FORMU ====== -->
+    <section class="bolum">
+        <h2 class="bolum-baslik">Yeni Kampanya Oluştur</h2>
+        <p class="bolum-aciklama">Önemsediğin konuyu anlat, sesini duyurmaya başla</p>
+
+        <div class="form-alani">
+
+            <!-- ====== GİRİŞ UYARISI ======
+                 Kullanıcı giriş yapmadıysa form yerine bu kutu görünür.
+                 Görünüp gizlenmesini script.js (olusturSayfasiniKontrolEt)
+                 yönetir. -->
+            <div id="giris-uyari" style="display:none;background:#fff1ec;padding:26px;border-radius:10px;text-align:center;">
+                <p style="margin-bottom:14px;font-size:17px;">Kampanya oluşturmak için giriş yapmalısın.</p>
+                <a href="giris.html" class="btn">Giriş Yap</a>
+            </div>
+
+            <!-- Kampanya oluşturulunca görünecek başarı mesajı (başta gizli) -->
+            <div class="basari-mesaji" id="olustur-basari">
+                ✓ Kampanyan oluşturuldu! Kampanyalar sayfasına yönlendiriliyorsun...
+            </div>
+
+            <form id="olustur-form">
+
+                <!-- Kampanya başlığı -->
+                <div class="form-grup">
+                    <label for="yeni-baslik">Kampanya Başlığı</label>
+                    <input type="text" id="yeni-baslik" placeholder="Örn: Parkımıza yeni ağaçlar dikilsin" required>
+                </div>
+
+                <!-- Kategori seçimi (açılır menü) -->
+                <div class="form-grup">
+                    <label for="yeni-kategori">Kategori</label>
+                    <select id="yeni-kategori" required>
+                        <option value="Sağlık">Sağlık</option>
+                        <option value="Hayvanlar">Hayvanlar</option>
+                        <option value="Çevre">Çevre</option>
+                        <option value="Eğitim">Eğitim</option>
+                    </select>
+                </div>
+
+                <!-- Kısa özet (kartta görünecek) -->
+                <div class="form-grup">
+                    <label for="yeni-ozet">Kısa Özet</label>
+                    <input type="text" id="yeni-ozet" placeholder="Kampanyanı bir cümleyle özetle" required>
+                </div>
+
+                <!-- Uzun açıklama (detay sayfasında görünecek) -->
+                <div class="form-grup">
+                    <label for="yeni-detay">Detaylı Açıklama</label>
+                    <textarea id="yeni-detay" placeholder="Kampanyanı detaylıca anlat: neden önemli, ne talep ediyorsun?" required></textarea>
+                </div>
+
+                <!-- Hedef imza sayısı -->
+                <div class="form-grup">
+                    <label for="yeni-hedef">Hedef İmza Sayısı</label>
+                    <input type="number" id="yeni-hedef" placeholder="Örn: 1000" min="1" required>
+                </div>
+
+                <button type="submit" class="btn">Kampanyayı Yayınla</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

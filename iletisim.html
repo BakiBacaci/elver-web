@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - İLETİŞİM SAYFASI (iletisim.html)
+     ------------------------------------------------------------
+     Solda iletişim bilgileri (telefon, e-posta), sağda mesaj
+     gönderme formu bulunur. Form gönderilince iletisimGonder()
+     çalışır ve teşekkür mesajı gösterir (sunucu yoktur).
+     İletişim bilgilerini değiştirmek istersen aşağıdaki
+     telefon ve e-posta satırlarını düzenle.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== İLETİŞİM İÇERİĞİ ====== -->
+    <section class="bolum">
+        <h2 class="bolum-baslik">İletişim</h2>
+        <p class="bolum-aciklama">Soru, öneri veya iş birliği için bize ulaşabilirsin</p>
+
+        <!-- İki sütunlu düzen: solda bilgiler, sağda form -->
+        <div class="iki-sutun">
+
+            <!-- ====== SOL: İLETİŞİM BİLGİLERİ ====== -->
+            <div>
+                <div class="bilgi-kutu">
+                    <h3>📞 Telefon</h3>
+                    <!-- Telefonu değiştirmek için aşağıdaki numarayı düzenle -->
+                    <p style="font-size:18px;">0544 388 62 60</p>
+                </div>
+
+                <div class="bilgi-kutu">
+                    <h3>✉️ E-posta</h3>
+                    <!-- E-postayı değiştirmek için aşağıdaki adresi düzenle -->
+                    <p style="font-size:18px;">bakibacaci05@gmail.com</p>
+                </div>
+
+                <div class="bilgi-kutu">
+                    <h3>👤 Yetkili</h3>
+                    <p style="font-size:18px;">Baki Bacacı</p>
+                </div>
+            </div>
+
+            <!-- ====== SAĞ: MESAJ FORMU ====== -->
+            <div>
+                <!-- Mesaj gönderilince görünecek başarı mesajı (başta gizli) -->
+                <div class="basari-mesaji" id="iletisim-basari">
+                    ✓ Mesajın bize ulaştı, en kısa sürede dönüş yapacağız. Teşekkürler!
+                </div>
+
+                <form id="iletisim-form">
+                    <div class="form-grup">
+                        <label for="ad">Ad Soyad</label>
+                        <input type="text" id="ad" placeholder="Adınız ve soyadınız" required>
+                    </div>
+                    <div class="form-grup">
+                        <label for="mail">E-posta</label>
+                        <input type="email" id="mail" placeholder="ornek@mail.com" required>
+                    </div>
+                    <div class="form-grup">
+                        <label for="mesaj">Mesajınız</label>
+                        <textarea id="mesaj" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Mesajı Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

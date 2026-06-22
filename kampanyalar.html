@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELVER - KAMPANYALAR SAYFASI (kampanyalar.html)
+     ------------------------------------------------------------
+     Tüm kampanyaların listelendiği sayfadır. Üstte kategori
+     filtre butonları, altında kampanya kartları bulunur.
+     Kartları ve filtreyi JavaScript (script.js) yönetir.
+     ============================================================ -->
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanyalar - Elver</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ====== ÜST MENÜ ====== -->
+    <header>
+        <a href="index.html" class="logo">elver</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="kampanyalar.html">Kampanyalar</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="kampanya-olustur.html" class="menu-buton">Kampanya Oluştur</a></li>
+                <!-- Giriş/Çıkış linki: içeriğini script.js otomatik doldurur -->
+                <li id="oturum-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== SAYFA İÇERİĞİ ====== -->
+    <section class="bolum">
+        <h2 class="bolum-baslik">Tüm Kampanyalar</h2>
+        <p class="bolum-aciklama">Destek olmak istediğin kampanyayı seç ve imzala</p>
+
+        <!-- ====== KATEGORİ FİLTRE BUTONLARI ======
+             Her butona tıklanınca kategoriSec() fonksiyonu çalışır
+             ve liste o kategoriye göre yeniden çizilir.
+             Yeni kategori eklemek istersen buraya bir buton ekle. -->
+        <div style="text-align:center;margin-bottom:35px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button class="filtre-buton btn" onclick="kategoriSec('Hepsi', this)">Hepsi</button>
+            <button class="filtre-buton btn-cizgili" onclick="kategoriSec('Sağlık', this)">Sağlık</button>
+            <button class="filtre-buton btn-cizgili" onclick="kategoriSec('Hayvanlar', this)">Hayvanlar</button>
+            <button class="filtre-buton btn-cizgili" onclick="kategoriSec('Çevre', this)">Çevre</button>
+            <button class="filtre-buton btn-cizgili" onclick="kategoriSec('Eğitim', this)">Eğitim</button>
+        </div>
+
+        <!-- ====== KAMPANYA KARTLARI ======
+             Bu kutunun içini JavaScript dolduruyor. -->
+        <div class="kart-listesi" id="tum-kampanyalar">
+            <!-- Kartlar buraya JS ile gelecek -->
+        </div>
+    </section>
+
+    <!-- ====== ALT BİLGİ (FOOTER) ====== -->
+    <footer>
+        <div class="logo">elver</div>
+        <p>Sesini duyur, değişimi başlat.</p>
+        <p>&copy; 2026 Elver - Baki Bacacı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ====== FIREBASE KÜTÜPHANELERİ ====== -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-ayarlar.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
