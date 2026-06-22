@@ -1,0 +1,557 @@
+/* ============================================================
+   ELVER - ORTAK STİL DOSYASI (style.css)
+   ------------------------------------------------------------
+
+/* ------------------------------------------------------------
+   1) RENK DEĞİŞKENLERİ
+   ------------------------------------------------------------
+   Sitenin ana renkleri burada tanımlı. Bir rengi değiştirmek
+   istersen sadece buradaki kodu değiştir, tüm site güncellenir.
+   --ana-renk      : Butonların ve vurguların rengi (turuncu-kırmızı)
+   --ana-renk-koyu : Üzerine gelince (hover) koyulaşan ton
+   --zemin         : Sayfa arka planı (beyaz)
+   --yazi-rengi    : Normal yazı rengi (koyu gri)
+   ------------------------------------------------------------ */
+:root {
+    --ana-renk: #f1592a;          /* hafif kırmızı-turuncu */
+    --ana-renk-koyu: #d8431a;     /* hover (üzerine gelince) tonu */
+    --ana-renk-acik: #fff1ec;     /* çok açık turuncu (kutu zeminleri) */
+    --zemin: #ffffff;             /* beyaz arka plan */
+    --yazi-rengi: #2b2b2b;        /* ana yazı rengi */
+    --gri-yazi: #6b6b6b;          /* açıklama/ikincil yazılar */
+    --kenar-cizgi: #ececec;       /* ince ayraç çizgileri */
+}
+
+
+/* ------------------------------------------------------------
+   2) GENEL SIFIRLAMA
+   ------------------------------------------------------------
+   Tarayıcının varsayılan boşluklarını sıfırlıyoruz ki
+   her yerde aynı görünsün.
+   ------------------------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* kenarlık ve padding genişliğe dahil olsun */
+}
+
+/* Sayfanın genel yazı tipi ve zemin rengi */
+body {
+    font-family: "Segoe UI", Arial, sans-serif; /* sade, okunaklı yazı tipi */
+    background-color: var(--zemin);
+    color: var(--yazi-rengi);
+    line-height: 1.6;
+}
+
+/* Bağlantıların (link) altı çizili görünmesin */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ------------------------------------------------------------
+   3) ÜST MENÜ (HEADER)
+   ------------------------------------------------------------
+   Sol üstte "elver" logosu, sağda menü linkleri bulunur.
+   Logoyu değiştirmek için HTML dosyalarındaki .logo yazısını
+   değiştir. Menü linklerinin rengini buradan ayarlayabilirsin.
+   ------------------------------------------------------------ */
+header {
+    display: flex;
+    justify-content: space-between; /* logo solda, menü sağda */
+    align-items: center;
+    padding: 16px 40px;
+    background-color: var(--zemin);
+    border-bottom: 1px solid var(--kenar-cizgi);
+    position: sticky;  /* sayfa kaydırılınca menü üstte sabit kalsın */
+    top: 0;
+    z-index: 100;
+}
+
+/* Sol üstteki "elver" logosu */
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--ana-renk); /* logo turuncu-kırmızı renkte */
+    letter-spacing: 1px;
+}
+
+/* Menü linklerinin bulunduğu liste */
+nav ul {
+    list-style: none; /* madde işaretlerini kaldır */
+    display: flex;
+    gap: 26px; /* linkler arası boşluk */
+}
+
+/* Tek tek menü linkleri */
+nav ul li a {
+    color: var(--yazi-rengi);
+    font-size: 16px;
+    transition: color 0.2s; /* renk geçişi yumuşak olsun */
+}
+
+/* Menü linkinin üzerine gelince renk değişsin */
+nav ul li a:hover {
+    color: var(--ana-renk);
+}
+
+/* "Kampanya Oluştur" gibi öne çıkan menü butonu */
+nav ul li a.menu-buton {
+    background-color: var(--ana-renk);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+nav ul li a.menu-buton:hover {
+    background-color: var(--ana-renk-koyu);
+    color: #fff;
+}
+
+
+/* ------------------------------------------------------------
+   4) BUTONLAR
+   ------------------------------------------------------------
+   Sitedeki tüm turuncu butonlar bu sınıfı kullanır: .btn
+   ------------------------------------------------------------ */
+.btn {
+    display: inline-block;
+    background-color: var(--ana-renk);
+    color: #fff;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: var(--ana-renk-koyu);
+}
+
+/* İçi boş (kenarlıklı) buton türü */
+.btn-cizgili {
+    background-color: transparent;
+    color: var(--ana-renk);
+    border: 2px solid var(--ana-renk);
+}
+.btn-cizgili:hover {
+    background-color: var(--ana-renk);
+    color: #fff;
+}
+
+
+/* ------------------------------------------------------------
+   5) HERO (ANA SAYFA KARŞILAMA BÖLÜMÜ)
+   ------------------------------------------------------------
+   Ana sayfanın en üstündeki büyük başlık ve açıklama alanı.
+   ------------------------------------------------------------ */
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    background-color: var(--ana-renk-acik); /* çok açık turuncu zemin */
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 18px;
+    color: var(--yazi-rengi);
+}
+
+/* Başlık içindeki vurgulu kelime (turuncu) */
+.hero h1 span {
+    color: var(--ana-renk);
+}
+
+.hero p {
+    font-size: 19px;
+    color: var(--gri-yazi);
+    max-width: 640px;
+    margin: 0 auto 30px auto; /* ortalanmış paragraf */
+}
+
+
+/* ------------------------------------------------------------
+   6) BÖLÜM BAŞLIKLARI
+   ------------------------------------------------------------
+   Sayfa içindeki "Öne Çıkan Kampanyalar" gibi başlıklar.
+   ------------------------------------------------------------ */
+.bolum {
+    max-width: 1100px;
+    margin: 0 auto;       /* içeriği ortala */
+    padding: 60px 20px;
+}
+
+.bolum-baslik {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.bolum-aciklama {
+    text-align: center;
+    color: var(--gri-yazi);
+    margin-bottom: 40px;
+}
+
+
+/* ------------------------------------------------------------
+   7) KAMPANYA KARTLARI
+   ------------------------------------------------------------
+   Kampanyalar bu kart yapısında gösterilir (resim + başlık +
+   açıklama + imza sayısı + buton). JS bu kartları otomatik
+   oluşturur, sadece görünümünü buradan değiştirebilirsin.
+   ------------------------------------------------------------ */
+
+/* Kartların yan yana dizildiği ızgara (grid) */
+.kart-listesi {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+    gap: 26px;
+}
+
+/* Tek bir kampanya kartı */
+.kart {
+    background-color: #fff;
+    border: 1px solid var(--kenar-cizgi);
+    border-radius: 10px;
+    overflow: hidden; /* köşeleri yuvarlat */
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Kartın üzerine gelince hafifçe yükselsin */
+.kart:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+/* Kartın üst kısmındaki renkli şerit (resim yerine) */
+.kart-resim {
+    height: 140px;
+    background-color: var(--ana-renk-acik);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px; /* içindeki emoji/ikon boyutu */
+}
+
+/* Kart içindeki yazı alanı */
+.kart-icerik {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.kart-icerik h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.kart-icerik p {
+    color: var(--gri-yazi);
+    font-size: 15px;
+    margin-bottom: 14px;
+    flex-grow: 1; /* açıklama alanı esnesin ki butonlar aynı hizada olsun */
+}
+
+/* İmza sayısı yazısı */
+.imza-sayisi {
+    font-size: 14px;
+    color: var(--ana-renk);
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Kategori etiketi (örn. "Sağlık", "Hayvanlar") */
+.etiket {
+    display: inline-block;
+    background-color: var(--ana-renk-acik);
+    color: var(--ana-renk-koyu);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+
+/* ------------------------------------------------------------
+   8) FORMLAR (İletişim, kampanya oluşturma, imza)
+   ------------------------------------------------------------ */
+.form-alani {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Her form satırı (etiket + kutu) */
+.form-grup {
+    margin-bottom: 18px;
+}
+
+.form-grup label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Yazı kutuları ve açılır menüler */
+.form-grup input,
+.form-grup textarea,
+.form-grup select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+/* Kutuya tıklayınca kenarlık turuncu olsun */
+.form-grup input:focus,
+.form-grup textarea:focus,
+.form-grup select:focus {
+    outline: none;
+    border-color: var(--ana-renk);
+}
+
+/* Çok satırlı mesaj kutusu yüksekliği */
+.form-grup textarea {
+    min-height: 130px;
+    resize: vertical; /* sadece dikey büyütülebilsin */
+}
+
+/* Form gönderildikten sonra çıkan başarı mesajı */
+.basari-mesaji {
+    background-color: #e7f7ec;
+    color: #1f7a3d;
+    padding: 14px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    display: none; /* JS ile görünür yapılır */
+}
+
+
+/* ------------------------------------------------------------
+   9) HAKKIMIZDA / İLETİŞİM BİLGİ KUTULARI
+   ------------------------------------------------------------ */
+.bilgi-kutu {
+    background-color: var(--ana-renk-acik);
+    padding: 26px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.bilgi-kutu h3 {
+    margin-bottom: 8px;
+    color: var(--ana-renk-koyu);
+}
+
+/* İletişim sayfasındaki ikili düzen (sol bilgi - sağ form) */
+.iki-sutun {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+
+/* ------------------------------------------------------------
+   10) ALT BİLGİ (FOOTER)
+   ------------------------------------------------------------ */
+footer {
+    background-color: #fafafa;
+    border-top: 1px solid var(--kenar-cizgi);
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--gri-yazi);
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+footer .logo {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+
+/* ------------------------------------------------------------
+   11) MOBİL UYUM (TELEFON / KÜÇÜK EKRANLAR)
+   ------------------------------------------------------------
+   Ekran 768px'den küçükse (telefon/tablet) düzeni
+   tek sütuna indiriyoruz ki taşma olmasın.
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+
+    header {
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    /* Kartlar ve iki sütunlu alanlar alt alta gelsin */
+    .kart-listesi {
+        grid-template-columns: 1fr;
+    }
+
+    .iki-sutun {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ------------------------------------------------------------
+   12) GİRİŞ / KAYIT KUTUSU VE SEKMELER
+   ------------------------------------------------------------
+   giris.html sayfasındaki ortalanmış giriş kutusu ve üstündeki
+   "Kullanıcı / Admin" sekme butonları için stiller.
+   ------------------------------------------------------------ */
+
+/* Giriş ve kayıt formlarını ortalayan dar kutu */
+.giris-kutu {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    border: 1px solid var(--kenar-cizgi);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Sekme butonlarının bulunduğu satır */
+.sekme-satir {
+    display: flex;
+    margin-bottom: 24px;
+    border: 1px solid var(--ana-renk);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Tek bir sekme butonu (Kullanıcı / Admin) */
+.sekme {
+    flex: 1;                 /* iki sekme eşit genişlikte */
+    padding: 11px;
+    background: #fff;
+    color: var(--ana-renk);
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+/* Seçili (aktif) sekme dolu turuncu görünür */
+.sekme.aktif {
+    background: var(--ana-renk);
+    color: #fff;
+}
+
+/* Giriş hatalarının gösterildiği kırmızı kutu (başta gizli) */
+.hata-mesaji {
+    display: none; /* JS ile görünür yapılır */
+    background-color: #fdecea;
+    color: #c0392b;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+/* Giriş kutusunun altındaki "Hesabın yok mu?" gibi linkler */
+.giris-alt-link {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--gri-yazi);
+}
+.giris-alt-link a {
+    color: var(--ana-renk);
+    font-weight: bold;
+}
+
+
+/* ------------------------------------------------------------
+   13) ADMIN PANELİ
+   ------------------------------------------------------------
+   admin.html sayfasındaki istatistik kutuları, tablolar ve
+   "Sil" butonu için stiller.
+   ------------------------------------------------------------ */
+
+/* Üstteki üç istatistik kutusunun dizildiği satır */
+.ist-satir {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Tek bir istatistik kutusu (örn. "Toplam İmza") */
+.ist-kutu {
+    flex: 1;
+    min-width: 160px;
+    background: var(--ana-renk-acik);
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+}
+
+/* Kutudaki büyük sayı */
+.ist-kutu .sayi {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--ana-renk-koyu);
+}
+
+/* Kutudaki açıklama yazısı */
+.ist-kutu .etiket-yazi {
+    color: var(--gri-yazi);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* Admin tabloları (kampanyalar ve üyeler) */
+.admin-tablo {
+    width: 100%;
+    border-collapse: collapse;   /* hücre çizgileri tek çizgi olsun */
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+.admin-tablo th,
+.admin-tablo td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--kenar-cizgi);
+}
+
+/* Tablo başlık satırı */
+.admin-tablo th {
+    background: #fafafa;
+    color: var(--yazi-rengi);
+}
+
+/* "Sil" butonu (küçük kırmızı buton) */
+.btn-sil {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+}
+.btn-sil:hover {
+    background: #c0392b;
+}
